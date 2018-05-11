@@ -16,7 +16,7 @@ class App extends Component {
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/photos')
     .then(response=>response.json())
-    .then(parsedJSON=>parsedJSON.slice(0, 20).map(item=>{
+    .then(parsedJSON=>parsedJSON.slice(0, 9).map(item=>{
       return {
         title: item.title,
         imgSrc: item.thumbnailUrl

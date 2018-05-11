@@ -14,7 +14,7 @@
       .content-item-info {
         position: relative;
         width: 100%;
-
+        
         .xx:hover {
           opacity: 1;
           cursor: pointer;
@@ -79,6 +79,22 @@
         
       }
     }
-
-
   }
+
+@media screen and (max-width: 1000px) {
+  .content-item {
+    flex-basis: 50%;
+
+    figure {
+
+      .content-item-options {
+        padding: 7px;
+
+        input {
+          font-size: 70%;
+          
+        }
+      }
+    }
+  }
+}

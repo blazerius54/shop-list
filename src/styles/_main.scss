@@ -4,18 +4,37 @@
       display: flex;
       justify-content: flex-end;
       
-      .shopping-basket {
-        padding: 15px 10px 10px 40px;
-        font-weight: 600;
-        color: white;
+      div {
         background: black;
-        background-image: url('https://cdn0.iconfinder.com/data/icons/40-shopping-cart-icons/24/-shopping-basket-ShapesFREE.png');
-        background-repeat: no-repeat;
-        background-position: 10% 50%;
-      }      
+        padding: 10px;
+        
+        .shopping-basket {
+          padding: 15px 10px 10px 40px;
+          font-weight: 600;
+          color: white;
+          background-image: url('https://cdn0.iconfinder.com/data/icons/40-shopping-cart-icons/24/-shopping-basket-ShapesFREE.png');
+          background-repeat: no-repeat;
+          background-position: 10% 50%;
+        }  
+      }    
     }
+
   .main-content {
     display: flex;
     flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .main {
+    
+    .total-purchase {
+      flex-direction: column;
+
+      div {
+        display: flex;
+        justify-content: center;
+      }
+    } 
   }
 }

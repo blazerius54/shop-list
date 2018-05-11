@@ -9,8 +9,11 @@ const Main = (props) => {
     return (
         <div className='main'>
             <div className='total-purchase'>
-                <span className='shopping-basket'> Total: {totalAmount} </span>
+                <div>
+                    <span className='shopping-basket'> Total: {totalAmount} </span>
+                </div>
             </div>
+            <h1 style={{textAlign: 'center'}}>Catalog</h1>
             <div className='main-content'>
                 {
                     shopItems.map((item, index) => {
