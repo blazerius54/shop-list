@@ -19,7 +19,7 @@
     // justify-content: space-between;
       
     .content-item {
-      flex: 0 0 33%;
+      flex: 0 0 20%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -72,10 +72,17 @@
           padding: 15px;
           justify-content: center;
           
-          p {
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-right: 10px; 
+          button {
+            border: none;
+            background: none;
+            margin-right: 5px;
+            cursor: pointer;
+            
+            p {
+              font-weight: 800;
+              text-transform: uppercase;
+              margin-right: 0; 
+            }
           }
 
           input {

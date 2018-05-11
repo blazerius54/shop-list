@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import store from './store';
+import { Provider } from 'react-redux';
+import SingleItem from './components/Single-item';
 import './App.scss';
 
 class App extends Component {
@@ -29,51 +32,38 @@ class App extends Component {
   render() {
     const { step, isLoading } = this.state;
     return (
-      <div className="App">
-        <button
-          onClick={() => {
-            fetch('https://jsonplaceholder.typicode.com/photos')
-              .then(response => response.json())
-              .then(parsedJSON => parsedJSON.slice(0, step+20).map(item => {
-                return {
-                  title: item.title,
-                  imgSrc: item.thumbnailUrl
-                }
-              }))
-              .then(arr => this.setState({
-                arr,
-                step: step + 20,
-                isLoading: false
-              }))
-          }}
-        >click</button>
-        { isLoading && <p>Loading</p> }
-        <div className='main-content'>
-          {
-            this.state.arr.map((item, index) => {
-              return (
-                <div key={index} className='content-item'>
-                  {/* <h2>{item.title}</h2> */}
-                  <figure>
-                  <div className='content-item-info'>
-                    <div className='xx'>
-                      <p>
-                        {item.title}
-                      </p>
-                    </div>
-                  <img src={item.imgSrc} alt="" />
-                  </div>
-                  <div className='content-item-options'>
-                    <p>Buy</p>
-                    <input type="text" placeholder='amount'/>
-                  </div>
-                </figure>
-                </div>
-              )
-            })
-          }
+      <Provider store={store}>
+        <div className="App">
+          <button
+            onClick={() => {
+              fetch('https://jsonplaceholder.typicode.com/photos')
+                .then(response => response.json())
+                .then(parsedJSON => parsedJSON.slice(0, step + 20).map(item => {
+                  return {
+                    title: item.title,
+                    imgSrc: item.thumbnailUrl
+                  }
+                }))
+                .then(arr => this.setState({
+                  arr,
+                  step: step + 20,
+                  isLoading: false
+                }))
+            }}
+          >click</button>
+          {isLoading && <p>Loading</p>}
+          <div className='main-content'>
+            {
+              this.state.arr.map((item, index) => {
+                return (
+                  <SingleItem key={index} item={item}/>
+                )
+              })
+            }
+          </div>
         </div>
-      </div>
+      </Provider>
+
     );
   }
 }
