@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+  outline:0;
+}
+
+.App {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  background: rgb(240, 240, 240);
+  max-width: 80%;
+  min-height: 100vh;
+  
+  .main-content {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+      
+    .content-item {
+      flex: 0 0 33%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px; 
+      margin-bottom: 10px; 
+      
+      figure {
+        background-color: rgb(255, 255, 255);
+        border: 2px solid rgb(90, 90, 90);
+
+        .content-item-info {
+          position: relative;
+          width: 100%;
+
+          .xx:hover {
+            opacity: 1;
+            cursor: pointer;
+          }
+  
+          .xx {
+            opacity: 0;
+            position: absolute;
+            display: flex;
+            min-height: 98%;
+            width: 100%;
+            
+            p {
+              flex-basis: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin: 0;
+              padding: 0 15px;
+              background: rgba(146, 166, 255, 0.8);
+            }
+          }
+  
+  
+          img {
+            width: 100%;
+            height: 100%;
+            border-bottom: 2px solid rgb(90, 90, 90);
+          }
+        }
+        
+        .content-item-options {
+          display: flex;
+          align-items: center;
+          padding: 15px;
+          justify-content: center;
+          
+          p {
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-right: 10px; 
+          }
+
+          input {
+            width: 25%;
+            border: none;
+            border-bottom: 2px solid gray;
+            transition: border-bottom 500ms linear;
+            font-size: 105%;
+          }
+          
+          input:focus {
+            border-bottom: 2px solid #4C99CC; 
+          }
+          
+        }
+      }
+
+
+    }
+  }
+}
