@@ -12,11 +12,25 @@
   background: rgb(240, 240, 240);
   max-width: 80%;
   min-height: 100vh;
-  
+  .main{
+    
+    .total-purchase {
+      display: flex;
+      justify-content: flex-end;
+      
+      .shopping-basket {
+        padding: 15px 10px 10px 40px;
+        font-weight: 600;
+        color: white;
+        background: black;
+        background-image: url('https://cdn0.iconfinder.com/data/icons/40-shopping-cart-icons/24/-shopping-basket-ShapesFREE.png');
+        background-repeat: no-repeat;
+        background-position:10% 50%;
+      }      
+    }
   .main-content {
     display: flex;
     flex-wrap: wrap;
-    // justify-content: space-between;
       
     .content-item {
       flex: 0 0 20%;
@@ -86,7 +100,7 @@
           }
 
           input {
-            width: 38%;
+            width: 40%;
             border: none;
             border-bottom: 2px solid gray;
             transition: border-bottom 500ms linear;
@@ -102,5 +116,6 @@
 
 
     }
+  }
   }
 }

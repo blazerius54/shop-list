@@ -15,22 +15,35 @@ class Main extends Component {
     }
 
     render() {
+        const { totalAmount, setTotalAmount } = this.props;
         return (
-            <div className='main-content'>
-                {
-                    this.props.shopItems.map((item, index) => {
-                        return (
-                            <SingleItem key={index} item={item} setTotalAmount={this.props.setTotalAmount}/>
-                        )
-                    })
-                }
+            <div className='main'>
+                <div className='total-purchase'>
+                    <span className='shopping-basket'> Total: {totalAmount} </span>
+                </div>
+                <div className='main-content'>
+                    {
+                        this.props.shopItems.map((item, index) => {
+                            return (
+                                <SingleItem key={index} item={item} setTotalAmount={setTotalAmount} />
+                            )
+                        })
+                    }
+                </div>
             </div>
         );
     }
 }
 
-function mapDispatchToProps (dispatch) {
+function mapStateToProps(state) {
+    console.log(state)
+    return {
+        totalAmount: state
+    }
+}
+
+function mapDispatchToProps(dispatch) {
     return bindActionCreators({ setTotalAmount }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
-
 class SingleItem extends Component {
 
     render() {
         const { title, imgSrc } = this.props.item;
+        const { setTotalAmount } = this.props;
+
         return (
             <div className='content-item'>
                 <figure>
@@ -14,12 +15,11 @@ class SingleItem extends Component {
                         </div>
                         <img src={imgSrc} alt="img" />
                     </div>
-                    <form 
-                    className='content-item-options'
+                    <form className='content-item-options'
                     onSubmit={
                             (e)=>{
                                 e.preventDefault();
-                                this.props.setTotalAmount(this.inputAmount.value);
+                                setTotalAmount(this.inputAmount.value);
                                 e.target.reset();
                             }
                         }
