@@ -15,7 +15,8 @@ class SingleItem extends Component {
                         </div>
                         <img src={imgSrc} alt="img" />
                     </div>
-                    <form className='content-item-options'
+                    <form 
+                    className='content-item-options'
                     onSubmit={
                             (e)=>{
                                 e.preventDefault();

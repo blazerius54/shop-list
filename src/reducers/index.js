@@ -5,6 +5,6 @@ export function reducer(state = 0, action) {
         case SET_TOTAL_AMOUNT: {
             return state + +action.amount
         }
+        default: return state;
     }
-    return state
 }

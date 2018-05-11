@@ -8,7 +8,6 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      step: 20,
       shopItems: [],
       isLoading: true
     }
@@ -30,7 +29,7 @@ class App extends Component {
   }
 
   render() {
-    const { step, isLoading, shopItems } = this.state;
+    const { isLoading, shopItems } = this.state;
     return (
       <Provider store={store}>
         <div className="App">
