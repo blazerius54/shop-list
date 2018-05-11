@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import store from './store';
 import { Provider } from 'react-redux';
 import SingleItem from './components/Single-item';
+import Main from './components/Main';
 import './App.scss';
 
 class App extends Component {
@@ -9,7 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       step: 20,
-      arr: [],
+      shopItems: [],
       isLoading: true
     }
   }
@@ -23,18 +24,18 @@ class App extends Component {
         imgSrc: item.thumbnailUrl
       }
     }))
-    .then(arr=> this.setState({
-      arr,
+    .then(shopItems=> this.setState({
+      shopItems,
       isLoading: false
     }))
   }
 
   render() {
-    const { step, isLoading } = this.state;
+    const { step, isLoading, shopItems } = this.state;
     return (
       <Provider store={store}>
         <div className="App">
-          <button
+          {/* <button
             onClick={() => {
               fetch('https://jsonplaceholder.typicode.com/photos')
                 .then(response => response.json())
@@ -50,9 +51,10 @@ class App extends Component {
                   isLoading: false
                 }))
             }}
-          >click</button>
+          >click</button> */}
           {isLoading && <p>Loading</p>}
-          <div className='main-content'>
+          <Main shopItems={shopItems}/>
+          {/* <div className='main-content'>
             {
               this.state.arr.map((item, index) => {
                 return (
@@ -60,7 +62,7 @@ class App extends Component {
                 )
               })
             }
-          </div>
+          </div> */}
         </div>
       </Provider>
 

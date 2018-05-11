@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { setTotalAmount } from '../actions';
+
 
 class SingleItem extends Component {
 
@@ -12,28 +10,35 @@ class SingleItem extends Component {
                 <figure>
                     <div className='content-item-info'>
                         <div className='xx'>
-                            <p>
-                                {title}
-                            </p>
+                            <p>{title}</p>
                         </div>
-                        <img src={imgSrc} alt="" />
+                        <img src={imgSrc} alt="img" />
                     </div>
-                    <div className='content-item-options'>
+                    <form 
+                    className='content-item-options'
+                    onSubmit={
+                            (e)=>{
+                                e.preventDefault();
+                                this.props.setTotalAmount(this.inputAmount.value);
+                                e.target.reset();
+                            }
+                        }
+                    >
                         <button>
                             <p>Buy</p>
                         </button>
-                        <input type="text" placeholder='amount' />
-                    </div>
+                        <input 
+                        type='number' 
+                        placeholder='amount' 
+                        ref={ref => {
+                            this.inputAmount = ref;
+                        }}
+                        />
+                    </form>
                 </figure>
             </div>
         )
     }
 }
 
-// export default SingleItem;
-
-function mapDispatchToProps (dispatch) {
-    return bindActionCreators({ setTotalAmount }, dispatch)
-}
-
-export default connect(null, mapDispatchToProps)(SingleItem);
+export default SingleItem;
