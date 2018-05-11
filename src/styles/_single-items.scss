@@ -15,12 +15,12 @@
         position: relative;
         width: 100%;
         
-        .xx:hover {
+        .title:hover {
           opacity: 1;
           cursor: pointer;
         }
 
-        .xx {
+        .title {
           opacity: 0;
           position: absolute;
           display: flex;

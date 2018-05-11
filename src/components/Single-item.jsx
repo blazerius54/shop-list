@@ -10,7 +10,7 @@ class SingleItem extends Component {
             <div className='content-item'>
                 <figure>
                     <div className='content-item-info'>
-                        <div className='xx'>
+                        <div className='title'>
                             <p>{title}</p>
                         </div>
                         <img src={imgSrc} alt="img" />

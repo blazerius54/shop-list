@@ -8,8 +8,8 @@ const Main = (props) => {
     const { totalAmount, setTotalAmount, shopItems } = props;
     return (
         <div className='main'>
-            <div className='total-purchase'>
-                <div>
+            <div className='header'>
+                <div className='total-purchase'>
                     <span className='shopping-basket'> Total: {totalAmount} </span>
                 </div>
             </div>

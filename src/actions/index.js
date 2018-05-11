@@ -5,6 +5,5 @@ export const setTotalAmount = (amount) => {
         type: SET_TOTAL_AMOUNT,
         amount
     };
-    console.log(action);
     return action;
 }
