@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class SingleItem extends Component {
 
     render() {
-        const { title, imgSrc } = this.props.item;
-        const { setTotalAmount } = this.props;
+        const { title, imgSrc, id } = this.props.item;
+        const { changeAmount, sendAmount, index } = this.props;
 
         return (
             <div className='content-item'>
@@ -20,7 +20,7 @@ class SingleItem extends Component {
                     onSubmit={
                             (e)=>{
                                 e.preventDefault();
-                                setTotalAmount(this.inputAmount.value);
+                                sendAmount(index);
                                 e.target.reset();
                             }
                         }
@@ -31,9 +31,10 @@ class SingleItem extends Component {
                         <input 
                         type='number' 
                         placeholder='amount' 
-                        ref={ref => {
-                            this.inputAmount = ref;
-                        }}
+                        // ref={ref => {
+                        //     this.inputAmount = ref;
+                        // }}
+                        onChange={(e)=>changeAmount(e.target.value)}
                         />
                     </form>
                 </figure>
