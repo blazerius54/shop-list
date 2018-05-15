@@ -15,8 +15,7 @@ class Main extends Component {
     }
 
     sendAmount (index) {
-        // console.log(index, this.state.amount)
-        this.props.setTotalAmount(this.props.shopItems[index], this.state.amount);
+        if(this.state.amount) this.props.setTotalAmount(this.props.shopItems[index], this.state.amount);
     }
 
     changeAmount (amount) {
@@ -26,21 +25,20 @@ class Main extends Component {
     }
 
     render() {
-        const { totalAmount, setTotalAmount, shopItems } = this.props;
+        const { totalAmount, shopItems } = this.props;
         return (
             <div className='main'>
-                <div className='header'>
-                <Link to={process.env.PUBLIC_URL + '/shop'}><h2>Shop</h2></Link>
+                <header className='header'>
+                    {/* <Link to={process.env.PUBLIC_URL + '/shop'}><p>Shop</p></Link> */}
                     <div className='total-purchase'>
-                        {/* <span className='shopping-basket'> Total: {totalAmount} </span> */}
+                        <Link to={process.env.PUBLIC_URL + '/shop'}><span className='shopping-basket'> Total: {totalAmount.length} </span></Link>
                     </div>
-                </div>
+                </header>
                 <h1 style={{ textAlign: 'center' }}>Catalog</h1>
                 <div className='main-content'>
                     {
                         shopItems.map((item, index) => {
                             return (
-                                // <SingleItem key={index} item={item} setTotalAmount={setTotalAmount} />
                                 <SingleItem key={index} item={item} index={index}
                                 sendAmount={this.sendAmount.bind(this)} 
                                 changeAmount={this.changeAmount.bind(this)} 

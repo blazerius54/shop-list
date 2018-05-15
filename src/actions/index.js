@@ -1,15 +1,12 @@
-import { SET_TOTAL_AMOUNT } from '../consts';
+import { ADD_PURCHASE } from '../consts';
 
 export const setTotalAmount = (item, amount) => {
     const action = {
-        type: SET_TOTAL_AMOUNT,
+        type: ADD_PURCHASE,
         item: {
             amount,
             ...item
         }
-        // id,
-        // amount
     };
-    console.log(action)
     return action;
 }

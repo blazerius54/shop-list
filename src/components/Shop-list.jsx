@@ -4,17 +4,25 @@ import { connect } from 'react-redux';
 class ShopList extends Component {
 
     render() {
-        const { title, imgSrc, id } = this.props.info.item;
+        // const { title, imgSrc, id } = this.props.info.item;
         // const { changeAmount, sendAmount, index } = this.props;
+        const { purchases } = this.props;
 
         return (
             <div className='content-item'>
-                <div className='content-item-info'>
-                    <div className='title'>
-                        <p>{title}</p>
-                    </div>
-                    <img src={imgSrc} alt="img" />
-                </div>
+                {
+                    purchases.map((item, index)=>{
+                        return (
+                            <div className='content-item-info' key={index}>
+                                <div className='title'>
+                                    <p>{item.title}</p>
+                                    <p>{item.amount}</p>
+                                </div>
+                                <img src={item.imgSrc} alt="img" />
+                            </div>
+                        )
+                    })
+                }
             </div>
         )
     }
@@ -23,7 +31,7 @@ class ShopList extends Component {
 
 function mapStateToProps(state) {
     return {
-        info: state
+        purchases: state
     }
 }
 
