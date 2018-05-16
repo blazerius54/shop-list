@@ -6,13 +6,29 @@
         flex-direction: column;
         align-items: center;
         
-        h2 {
-            text-align: center;
-        }
+        table {
+            // border: 1px solid gray;
+            border-collapse: collapse;
+            border: 1px solid #dddddd;
 
-        .list-item {
-            display: flex;
-
+            td, th {
+                text-align: left;
+                padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+            
+            img {
+                max-width: 50%;
+            }
+            // .table-content-title {
+            //     display: flex;
+            //     align-items: center;
+                
+            // }
         }
+        
     }
 }

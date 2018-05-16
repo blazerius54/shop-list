@@ -16,37 +16,23 @@ class ShopList extends Component {
                 </Link>
                 <div className='shop-list-content'>
                     <h2>Your purchases:</h2>
-                    {/* {
-                        purchases.map((item, index) => {
-                            return (
-                                <div className='list-item' key={index}>
-                                    <div className='text-content'>
-                                        <p>{item.title}</p>
-                                        <p>{item.amount}</p>
-                                    </div>
-                                    <img src={item.imgSrc} alt="img" />
-                                </div>
-                            )
-                        })
-                    } */}
                     <table>
                         <tr>
-                            <th>Company</th>
-                            <th>Contact</th>
-                            <th>Country</th>
+                            <th>Image</th>
+                            <th>Info</th>
+                            <th>Amount</th>
                         </tr>
                         {
                             purchases.map((item, index) => {
                                 return (
-                                    <tr>
+                                    <tr className='table-content-title'>
                                         <td><img src={item.imgSrc} alt="img" /></td>
-                                        <td>{item.title}</td>
+                                        <td >{item.title}</td>
                                         <td>{item.amount}</td>
                                     </tr>
-
                                 )
-                            }
-                            )}
+                            })
+                        }
                     </table>
                 </div>
             </div>
