@@ -43,8 +43,11 @@ class App extends Component {
         <Switch>
           <Provider store={store}>
             <div className="App">
-              {isLoading && <h2 style={{ textAlign: 'center' }}>Loading</h2>}
-              <Route exact path={process.env.PUBLIC_URL + '/'} component={()=><Main shopItems={shopItems} />} />
+              {
+                isLoading?
+                <h2 style={{ textAlign: 'center' }}>Loading</h2> :
+                <Route exact path={process.env.PUBLIC_URL + '/'} component={()=><Main shopItems={shopItems} />} />
+              }
               <Route exact path={process.env.PUBLIC_URL + '/shop-list'} component={()=><ShopList/>} />
 
             </div>

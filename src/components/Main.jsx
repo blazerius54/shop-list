@@ -31,7 +31,9 @@ class Main extends Component {
                 <header className='header'>
                     {/* <Link to={process.env.PUBLIC_URL + '/shop'}><p>Shop</p></Link> */}
                     <div className='total-purchase'>
-                        <Link to={process.env.PUBLIC_URL + '/shop'}><span className='shopping-basket'> Total: {totalAmount.length} </span></Link>
+                        <Link to={process.env.PUBLIC_URL + '/shop-list'}>
+                            <span className='shopping-basket'> Total: {totalAmount.length} </span>
+                        </Link>
                     </div>
                 </header>
                 <h1 style={{ textAlign: 'center' }}>Catalog</h1>
