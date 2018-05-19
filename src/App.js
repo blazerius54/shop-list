@@ -18,23 +18,23 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/photos')
-    .then(response=>response.json())
-    .then(parsedJSON=>parsedJSON.slice(0, 9).map(item=>{
-      return {
-        title: item.title,
-        imgSrc: item.thumbnailUrl,
-        id: item.id
-      }
-    }))
-    .then(shopItems=> this.setState({
-      shopItems,
-      isLoading: false
-    })
-  )
-    .catch(error => console.log(error));
-  }
+  // componentDidMount() {
+  //   fetch('https://jsonplaceholder.typicode.com/photos')
+  //   .then(response=>response.json())
+  //   .then(parsedJSON=>parsedJSON.slice(0, 9).map(item=>{
+  //     return {
+  //       title: item.title,
+  //       imgSrc: item.thumbnailUrl,
+  //       id: item.id
+  //     }
+  //   }))
+  //   .then(shopItems=> this.setState({
+  //     shopItems,
+  //     isLoading: false
+  //   })
+  // )
+  //   .catch(error => console.log(error));
+  // }
 
   render() {
     const { isLoading, shopItems } = this.state;
@@ -44,9 +44,9 @@ class App extends Component {
           <Provider store={store}>
             <div className="App">
               {
-                isLoading?
-                <h2 style={{ textAlign: 'center' }}>Loading</h2> :
-                <Route exact path={process.env.PUBLIC_URL + '/'} component={()=><Main shopItems={shopItems} />} />
+                // isLoading?
+                // <h2 style={{ textAlign: 'center' }}>Loading</h2> :
+                <Route exact path={process.env.PUBLIC_URL + '/'} component={Main}  />
               }
               <Route exact path={process.env.PUBLIC_URL + '/shop-list'} component={()=><ShopList/>} />
 

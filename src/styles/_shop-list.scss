@@ -7,12 +7,11 @@
         align-items: center;
         
         table {
-            // border: 1px solid gray;
             border-collapse: collapse;
             border: 1px solid #dddddd;
-
+            
             td, th {
-                text-align: left;
+                text-align: center;
                 padding: 8px;
             }
             
@@ -21,14 +20,8 @@
             }
             
             img {
-                max-width: 50%;
+                width: 50%;
             }
-            // .table-content-title {
-            //     display: flex;
-            //     align-items: center;
-                
-            // }
         }
-        
     }
 }
