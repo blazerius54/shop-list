@@ -3,7 +3,6 @@ import SingleItem from './Single-item';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addPurchase, fetchItems } from '../actions';
-import { Link } from 'react-router-dom';
 
 class Main extends Component {
     constructor(props) {
@@ -16,6 +15,8 @@ class Main extends Component {
     componentDidMount () {
         const { items, fetchItems } = this.props;
         if(!items.length) fetchItems();
+         
+        
     }
 
     sendAmount (index) {
@@ -29,17 +30,10 @@ class Main extends Component {
     }
 
     render() {
-        const { purchases, items } = this.props;
+        const { items } = this.props;
         return (
             <div className='main'>
-                <header className='header'>
-                    {/* <Link to={process.env.PUBLIC_URL + '/shop'}><p>Shop</p></Link> */}
-                    <div className='total-purchase'>
-                        <Link to={process.env.PUBLIC_URL + '/shop-list'}>
-                            <span className='shopping-basket'> Total: {purchases.length} </span>
-                        </Link>
-                    </div>
-                </header>
+                
                 <h1 style={{ textAlign: 'center' }}>Catalog</h1>
                 {
                     items.length ?
@@ -64,10 +58,11 @@ class Main extends Component {
 function mapStateToProps(state) {
     const { isFetching, items } = state.shopItems;
     const { purchases } = state;
+    console.log(state)
     return {
         isFetching,
         items,
-        purchases
+        purchases,
     }
 }
 

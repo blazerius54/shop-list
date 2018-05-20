@@ -38,7 +38,7 @@ export function fetchItems() {
                     return {
                       title: item.title,
                       imgSrc: item.thumbnailUrl,
-                      id: item.id
+                      id: item.id,
                     }
                 })
             ))

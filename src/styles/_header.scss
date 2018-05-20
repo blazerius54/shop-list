@@ -1,0 +1,40 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    .total-purchase, .navigate-to-main  {
+      background: black;
+      padding: 10px;
+      
+      span {
+        font-weight: 600;
+        color: white;
+
+      }
+
+      a, a:active{
+        text-decoration: none;
+      }
+
+      .shopping-basket {
+        padding: 15px 10px 10px 40px;
+        background-image: url('https://cdn0.iconfinder.com/data/icons/40-shopping-cart-icons/24/-shopping-basket-ShapesFREE.png');
+        background-repeat: no-repeat;
+        background-position: 10% 60%;
+      }  
+    }    
+}
+
+
+@media screen and (max-width: 1000px) {
+  .header {
+    flex-direction: column;
+    
+    .total-purchase, .navigate-to-main{
+      width: 100%;
+      flex-basis: 100%; 
+      text-align: center;
+    }
+  } 
+}
