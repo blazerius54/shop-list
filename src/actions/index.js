@@ -1,6 +1,6 @@
 import { ADD_PURCHASE, REQUEST_ITEMS, RECEIVE_ITEMS } from '../consts';
 
-export const setTotalAmount = (item, amount) => {
+export const addPurchase = (item, amount) => {
     const action = {
         type: ADD_PURCHASE,
         item: {
@@ -23,7 +23,7 @@ export const receiveItems = (items) => {
         type: RECEIVE_ITEMS,
         items,
     }
-    console.log(items)
+    // console.log(items)
     return action;
 }
 

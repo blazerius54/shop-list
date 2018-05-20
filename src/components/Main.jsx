@@ -2,27 +2,24 @@ import React, { Component } from 'react';
 import SingleItem from './Single-item';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setTotalAmount, fetchItems, receiveItems } from '../actions';
+import { addPurchase, fetchItems } from '../actions';
 import { Link } from 'react-router-dom';
 
 class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoading: true,
             amount: 0,
-            shopItems: []
         }
     }
 
     componentDidMount () {
-        const { fetchItems } = this.props;
-        fetchItems();
+        const { items, fetchItems } = this.props;
+        if(!items.length) fetchItems();
     }
-    
 
     sendAmount (index) {
-        if(this.state.amount) this.props.setTotalAmount(this.props.shopItems[index], this.state.amount);
+        if(this.state.amount) this.props.addPurchase(this.props.items[index], this.state.amount);
     }
 
     changeAmount (amount) {
@@ -32,22 +29,22 @@ class Main extends Component {
     }
 
     render() {
-        const { totalAmount, shopItems } = this.props;
+        const { purchases, items } = this.props;
         return (
             <div className='main'>
                 <header className='header'>
                     {/* <Link to={process.env.PUBLIC_URL + '/shop'}><p>Shop</p></Link> */}
-                    {/* <div className='total-purchase'>
+                    <div className='total-purchase'>
                         <Link to={process.env.PUBLIC_URL + '/shop-list'}>
-                            <span className='shopping-basket'> Total: {totalAmount.length} </span>
+                            <span className='shopping-basket'> Total: {purchases.length} </span>
                         </Link>
-                    </div> */}
+                    </div>
                 </header>
                 <h1 style={{ textAlign: 'center' }}>Catalog</h1>
                 <div className='main-content'>
                     {
-                        this.props.items.length? 
-                        this.props.items.map((item, index) => {
+                        items.length? 
+                        items.map((item, index) => {
                             return (
                                 <SingleItem key={index} item={item} index={index}
                                 sendAmount={this.sendAmount.bind(this)} 
@@ -62,32 +59,17 @@ class Main extends Component {
     }
 }
 
-// function mapStateToProps(state) {
-//     return {
-//         // totalAmount: state,
-//         isFetching: state.isFetching,
-//         items: state.items
-//     }
-// }
-
-const mapStateToProps = state => {
-    const { selectedSubreddit, postsBySubreddit } = state
-    const {
-      isFetching,
-      items
-    } = state || {
-      isFetching: true,
-      items: []
-    }
-  
+function mapStateToProps(state) {
+    const { isFetching, items, purchases } = state;
     return {
-      items,
-      isFetching,
+        isFetching,
+        items,
+        purchases
     }
-  }
+}
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setTotalAmount, fetchItems, receiveItems }, dispatch)
+    return bindActionCreators({ addPurchase, fetchItems }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

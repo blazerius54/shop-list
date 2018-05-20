@@ -17,22 +17,24 @@ class ShopList extends Component {
                 <div className='shop-list-content'>
                     <h2>Your purchases:</h2>
                     <table>
-                        <tr>
-                            <th>Image</th>
-                            <th>Info</th>
-                            <th>Amount</th>
-                        </tr>
-                        {
-                            purchases.map((item, index) => {
-                                return (
-                                    <tr className='table-content-title'>
-                                        <td><img src={item.imgSrc} alt="img" /></td>
-                                        <td >{item.title}</td>
-                                        <td>{item.amount}</td>
-                                    </tr>
-                                )
-                            })
-                        }
+                        <tbody>
+                            <tr>
+                                <th>Image</th>
+                                <th>Info</th>
+                                <th>Amount</th>
+                            </tr>
+                            {
+                                purchases.map((item, index) => {
+                                    return (
+                                        <tr className='table-content-title' key={index}>
+                                            <td><img src={item.imgSrc} alt="img" /></td>
+                                            <td >{item.title}</td>
+                                            <td>{item.amount}</td>
+                                        </tr>
+                                    )
+                                })
+                            }
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -42,8 +44,10 @@ class ShopList extends Component {
 
 
 function mapStateToProps(state) {
+    console.log(state)
+    
     return {
-        purchases: state
+        purchases: state.purchases
     }
 }
 
