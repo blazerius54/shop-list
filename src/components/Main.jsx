@@ -41,26 +41,29 @@ class Main extends Component {
                     </div>
                 </header>
                 <h1 style={{ textAlign: 'center' }}>Catalog</h1>
-                <div className='main-content'>
-                    {
-                        items.length? 
-                        items.map((item, index) => {
-                            return (
-                                <SingleItem key={index} item={item} index={index}
-                                sendAmount={this.sendAmount.bind(this)} 
-                                changeAmount={this.changeAmount.bind(this)} 
-                                />
-                            )
-                        }):'null'
-                    }
-                </div>
+                {
+                    items.length ?
+                        <div className='main-content'>
+                            {items.map((item, index) => {
+                                return (
+                                    <SingleItem key={index} item={item} index={index}
+                                        sendAmount={this.sendAmount.bind(this)}
+                                        changeAmount={this.changeAmount.bind(this)}
+                                    />
+                                )
+                            })}
+                        </div>
+                        :
+                        <h2 style={{ textAlign: 'center' }}>Loading...</h2>
+                }
             </div>
         );
     }
 }
 
 function mapStateToProps(state) {
-    const { isFetching, items, purchases } = state;
+    const { isFetching, items } = state.shopItems;
+    const { purchases } = state;
     return {
         isFetching,
         items,
