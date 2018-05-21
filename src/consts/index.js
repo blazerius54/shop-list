@@ -1,4 +1,5 @@
 export const ADD_PURCHASE = 'ADD_PURCHASE';
+export const DELETE_PURCHASE = 'DELETE_PURCHASE';
 
 export const REQUEST_ITEMS = 'REQUEST_ITEMS';
 export const RECEIVE_ITEMS = 'RECEIVE_ITEMS';

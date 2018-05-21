@@ -1,10 +1,14 @@
-import { ADD_PURCHASE, REQUEST_ITEMS, RECEIVE_ITEMS } from '../consts';
+import { ADD_PURCHASE, DELETE_PURCHASE, REQUEST_ITEMS, RECEIVE_ITEMS } from '../consts';
 import { combineReducers } from 'redux'
 
 export function purchasesReducer(state = [], action) {
     switch (action.type) {
         case ADD_PURCHASE:
-            return  [...state.filter(item => action.item.id !== item.id), action.item ]
+            return  [...state.filter(item => action.item.id !== item.id), action.item ];
+
+        case DELETE_PURCHASE: 
+            return [...state.filter(item => action.id !== item.id)]
+        
         default: return state;
     }
 }

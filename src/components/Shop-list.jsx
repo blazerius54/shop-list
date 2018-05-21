@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { deletePurchase } from '../actions';
 
 const ShopList = (props) => {
     const { purchases } = props;
-
     return (
         <div className='shop-list'>
             <div className='shop-list-content'>
@@ -24,6 +25,7 @@ const ShopList = (props) => {
                                             <td><img src={item.imgSrc} alt="img" /></td>
                                             <td >{item.title}</td>
                                             <td>{item.amount}</td>
+                                            <td onClick={()=>props.deletePurchase(item.id)}>x</td>
                                         </tr>
                                     )
                                 })
@@ -43,4 +45,8 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(ShopList);
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({deletePurchase}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShopList);

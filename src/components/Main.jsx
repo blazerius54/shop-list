@@ -15,18 +15,20 @@ class Main extends Component {
     componentDidMount () {
         const { items, fetchItems } = this.props;
         if(!items.length) fetchItems();
-         
-        
     }
 
     sendAmount (index) {
         if(this.state.amount) this.props.addPurchase(this.props.items[index], this.state.amount);
+
+        this.setState({
+            amount: 0
+        })
     }
 
-    changeAmount (amount) {
-        this.setState({
-            amount 
-        })
+    changeAmount(amount) {
+            this.setState({
+                amount
+            })
     }
 
     render() {

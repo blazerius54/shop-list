@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const Header = (props) => {
     const { purchases } = props;
+    console.log(props);
     return (
         <header className='header'>
             <div className='navigate-to-main'>
