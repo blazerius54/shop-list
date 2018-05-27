@@ -60,7 +60,6 @@ class Main extends Component {
 function mapStateToProps(state) {
     const { isFetching, items } = state.shopItems;
     const { purchases } = state;
-    console.log(state)
     return {
         isFetching,
         items,

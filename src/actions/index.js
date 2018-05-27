@@ -11,11 +11,11 @@ export const addPurchase = (item, amount) => {
     return action;
 }
 
-export const editPurchase = (amount, id) => {
+export const editPurchase = (amount, index) => {
     const action = {
         type: EDIT_PURCHASE,
         amount,
-        id
+        index
     };
     return action;
 }
@@ -26,7 +26,6 @@ export const deletePurchase = (id, index) => {
         id,
         index
     }
-    console.log(action)
     return action;
 } 
 
@@ -42,7 +41,6 @@ export const receiveItems = (items) => {
         type: RECEIVE_ITEMS,
         items,
     }
-    // console.log(items)
     return action;
 }
 

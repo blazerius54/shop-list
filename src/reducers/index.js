@@ -4,18 +4,25 @@ import { combineReducers } from 'redux'
 export function purchasesReducer(state = [], action) {
     switch (action.type) {
         case ADD_PURCHASE:
-            return  [...state, action.item ];
+            return  [...state.filter(item => action.item.id !== item.id), action.item ];
 
         case EDIT_PURCHASE: 
-            return state;
+        return [
+            ...state.slice(0, action.index),
+            state[action.index] = {
+                ...state[action.index],
+                amount: action.amount
+            },
+            ...state.slice(action.index+1),
+        ]
 
         case DELETE_PURCHASE: 
-            // return [...state.filter(item => action.id !== item.id)]
-            console.log(action)
-            return [
-                ...state.slice(0, action.index),
-                ...state.slice(action.index+1),
-            ]
+            return [...state.filter(item => action.id !== item.id)]
+            // console.log(action)
+            // return [
+            //     ...state.slice(0, action.index),
+            //     ...state.slice(action.index+1),
+            // ]
         default: return state;
     }
 }

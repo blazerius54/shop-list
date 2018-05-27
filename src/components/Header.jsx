@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 const Header = (props) => {
     const { purchases } = props;
-    console.log(props);
     return (
         <header className='header'>
             <div className='navigate-to-main'>
