@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { deletePurchase } from '../actions';
+import { editPurchase, deletePurchase } from '../actions';
+import ListItem from './List-item';
 
 const ShopList = (props) => {
     const { purchases } = props;
@@ -10,7 +11,7 @@ const ShopList = (props) => {
             <div className='shop-list-content'>
                 <h2>Your purchases:</h2>
                 {
-                    purchases.length >= 1 &&
+                    purchases.length >= 1 ?
                     <table>
                         <tbody>
                             <tr>
@@ -20,18 +21,12 @@ const ShopList = (props) => {
                             </tr>
                             {
                                 purchases.map((item, index) => {
-                                    return (
-                                        <tr className='table-content-title' key={index}>
-                                            <td><img src={item.imgSrc} alt="img" /></td>
-                                            <td >{item.title}</td>
-                                            <td>{item.amount}</td>
-                                            <td onClick={()=>props.deletePurchase(item.id)}>x</td>
-                                        </tr>
-                                    )
+                                    return <ListItem key={index} index={index} item={item} deletePurchase={props.deletePurchase} editPurchase={props.editPurchase}/>
                                 })
                             }
                         </tbody>
-                    </table>
+                    </table> :
+                    <p>No purchases yet</p>
                 }
             </div>
         </div>
@@ -46,7 +41,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({deletePurchase}, dispatch)
+    return bindActionCreators({editPurchase, deletePurchase}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShopList);

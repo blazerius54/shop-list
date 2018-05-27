@@ -1,4 +1,4 @@
-import { ADD_PURCHASE, DELETE_PURCHASE, REQUEST_ITEMS, RECEIVE_ITEMS } from '../consts';
+import { ADD_PURCHASE, EDIT_PURCHASE, DELETE_PURCHASE, REQUEST_ITEMS, RECEIVE_ITEMS } from '../consts';
 
 export const addPurchase = (item, amount) => {
     const action = {
@@ -11,10 +11,20 @@ export const addPurchase = (item, amount) => {
     return action;
 }
 
-export const deletePurchase = (id) => {
+export const editPurchase = (amount, id) => {
+    const action = {
+        type: EDIT_PURCHASE,
+        amount,
+        id
+    };
+    return action;
+}
+
+export const deletePurchase = (id, index) => {
     const action = {
         type: DELETE_PURCHASE,
-        id
+        id,
+        index
     }
     console.log(action)
     return action;
