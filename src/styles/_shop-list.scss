@@ -1,6 +1,5 @@
 .shop-list {
-    display: flex;
-    flex-direction: column;
+    
     .shop-list-content {
         display: flex;
         flex-direction: column;
@@ -8,7 +7,12 @@
         
         table {
             border-collapse: collapse;
+            width: 80%;
 
+            tr {
+                height: 50px;
+            }
+            
             th {
                 border: 1px solid #dddddd;                
             }
@@ -16,6 +20,7 @@
             td, th {
                 text-align: center;
                 padding: 8px;
+                width: 33%;
             }
 
             td:not(.delete) {
@@ -25,7 +30,6 @@
             .delete {
                 cursor: pointer;
                 font-weight: 600;
-                // color: red;
                 color: rgb(134, 134, 134);
                 padding-left: 15px;
                 transition: all 0.2s ease;
@@ -33,11 +37,6 @@
 
             .delete:hover {
                 color: red;
-                transform: scale(1.2);
-            }
-
-            img {
-                width: 50%;
             }
         }
     }

@@ -12,9 +12,15 @@ class ListItem extends Component {
         }
     }
 
+    componentDidMount() {
+        this.setState({
+            amount: this.props.item.amount
+        })
+    }
+
     render() {
         const { imgSrc, title, amount, id } = this.props.item;
-        const { deletePurchase } = this.props;
+        const { deletePurchase, editPurchase, index } = this.props;
         const { isEditing } = this.state;
         return (
             <tr className='table-content-title'>
@@ -24,11 +30,12 @@ class ListItem extends Component {
                     {
                         isEditing ?
                             <form 
+                            className='content-item-options'
                             onSubmit={
                                 (e) => {
                                     this.setState({isEditing: false});              
                                     e.preventDefault();
-                                    this.props.editPurchase(this.state.amount, this.props.index)
+                                    editPurchase(this.state.amount, index)
                                 }
                             }>
                                 <input
@@ -40,17 +47,15 @@ class ListItem extends Component {
                                     // onChange={(e) => { this.props.editPurchase(e.target.value, this.props.index) }}
                                     onChange={(e) => { this.setState({amount: e.target.value}) }}
                                 />
-                                <button>click</button>
+                                <button><p>Buy</p></button>
                             </form> :
                             <p onClick={()=>this.setState({isEditing: true})}>{amount}</p>
                     }
-
                 </td>
-                <td className='delete' onClick={() => deletePurchase(id, this.props.index)}>x</td>
+                <td className='delete' onClick={() => deletePurchase(id, index)}>x</td> 
             </tr>
         )
     }
 }
-
 
 export default ListItem;

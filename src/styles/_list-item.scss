@@ -1,0 +1,32 @@
+.content-item-options {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    justify-content: center;
+    
+    button {
+      border: none;
+      background: none;
+      margin-right: 5px;
+      cursor: pointer;
+      
+        p {
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-right: 0; 
+        }
+    }
+
+    input {
+        background: none;
+        width: 30%;
+        border: none;
+        border-bottom: 2px solid gray;
+        transition: border-bottom 500ms linear;
+        font-size: 105%;
+    }
+      
+    input:focus {
+        border-bottom: 2px solid #4C99CC; 
+    }
+}
