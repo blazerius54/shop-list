@@ -3,6 +3,7 @@ import SingleItem from './Single-item';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addPurchase, fetchItems } from '../actions';
+import { Loader } from './Loader';
 
 class Main extends Component {
     constructor(props) {
@@ -50,8 +51,9 @@ class Main extends Component {
                             })}
                         </div>
                         :
-                        <h2 style={{ textAlign: 'center' }}>Loading...</h2>
-                }
+                        // <h2 style={{ textAlign: 'center' }}>Loading...</h2>
+                            <Loader/>
+}
             </div>
         );
     }

@@ -17,8 +17,6 @@ export function purchasesReducer(state = [], action) {
         ]
 
         case DELETE_PURCHASE: 
-            // return [...state.filter(item => action.id !== item.id)]
-            // console.log(action)
             return [
                 ...state.slice(0, action.index),
                 ...state.slice(action.index+1),
